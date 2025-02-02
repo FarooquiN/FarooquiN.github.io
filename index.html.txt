@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miss Joy, will you be my valentine? ❤️</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-image: url('background-image.jpg');  /* Replace with your background image file */
+            background-size: cover;  /* Ensures the image covers the entire page */
+            background-position: center;  /* Centers the background image */
+            margin: 0;
+            padding: 0;
+            height: 100vh;  /* Ensures the body covers the entire viewport */
+        }
+        .container {
+            margin-top: 20px;
+        }
+        h1 {
+            color: #d6336c;
+            font-size: 2.5em;
+        }
+        p {
+            color: #fff;  /* White text for better contrast against the background */
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        button {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        .yes {
+            background-color: #ff4d6d;
+            color: white;
+            font-weight: bold;
+        }
+        .yes:hover {
+            background-color: #e63950;
+            transform: scale(1.1);
+        }
+        .no {
+            background-color: #ddd;
+            color: #555;
+        }
+        .no:hover {
+            position: relative;
+            animation: shake 0.5s ease-in-out infinite;
+        }
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+        }
+        .rose-border {
+            width: 100%;
+            height: auto;
+        }
+        .response-image {
+            margin-top: 20px;
+            width: 300px; /* Adjust size of the image */
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Rose Border -->
+    <img src="your-gif-file.gif" alt="Rose Border" class="rose-border">
+
+    <div class="container">
+        <h1>Miss Joy, will you be my valentine? ❤️</h1>
+        <p>I love you and I want to make you my HoUsEwIfE!</p>
+        <div class="buttons">
+            <button class="yes" onclick="showMessage('yes')">Yes! 💖</button>
+            <button class="no" onclick="showMessage('no')">No (I am retard)</button> <!-- Updated "No" button text -->
+        </div>
+        <p id="response" style="display: none; font-size: 1.5em; margin-top: 20px; color: #d6336c;"></p>
+        <img id="responseImage" class="response-image" style="display: none;">
+    </div>
+
+    <!-- Bottom Rose Border -->
+    <img src="your-gif-file.gif" alt="Rose Border" class="rose-border">
+
+    <script>
+        function showMessage(answer) {
+            let message = "";
+            let imageSrc = "";
+            if (answer === 'yes') {
+                message = "CONGRATULATIONS! You've made the right choice ;)";
+                imageSrc = "your-yes-image.jpg";  // Replace with your custom image for Yes
+            } else {
+                message = "Nevermind, I'll go ask your mom then ;)";
+                imageSrc = "your-no-image.jpg";  // Replace with your custom image for No
+            }
+            
+            // Display the message and image
+            document.getElementById("response").innerText = message;
+            document.getElementById("response").style.display = "block";
+            document.getElementById("responseImage").src = imageSrc;
+            document.getElementById("responseImage").style.display = "block";
+        }
+    </script>
+</body>
+</html>
