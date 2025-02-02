@@ -8,26 +8,27 @@
         body {
             font-family: 'Arial', sans-serif;
             text-align: center;
-            background-image: url('background-image.jpg');  /* Replace with your background image file */
-            background-size: cover;  /* Ensures the image covers the entire page */
-            background-position: center;  /* Centers the background image */
+            background-image: url('background-image.jpg');  /* Default background image */
+            background-size: cover;
+            background-position: center;
             margin: 0;
             padding: 0;
-            height: 100vh;  /* Ensures the body covers the entire viewport */
+            height: 100vh;
+            transition: background-image 1s ease-in-out;  /* Smooth transition for background change */
         }
         .container {
             margin-top: 20px;
         }
         h1 {
-            color: white;  /* Changed to white */
+            color: white;
             font-size: 2.5em;
-            text-shadow: 0 0 10px #fff, 0 0 20px #ff4d6d, 0 0 30px #ff4d6d; /* Glowing text effect */
+            text-shadow: 0 0 10px #fff, 0 0 20px #ff4d6d, 0 0 30px #ff4d6d;
         }
         p {
-            color: white;  /* Changed to white */
+            color: white;
             font-size: 1.2em;
             margin-bottom: 30px;
-            text-shadow: 0 0 10px #fff, 0 0 20px #ff4d6d;  /* Glowing text effect */
+            text-shadow: 0 0 10px #fff, 0 0 20px #ff4d6d;
         }
         .buttons {
             display: flex;
@@ -53,7 +54,7 @@
         }
         .no {
             background-color: #ddd;
-            color: white;  /* Changed to white */
+            color: white;
         }
         .no:hover {
             position: relative;
@@ -73,13 +74,13 @@
         }
         .response-image {
             margin-top: 20px;
-            width: 300px; /* Adjust size of the image */
+            width: 300px;
             height: auto;
-            position: absolute;  /* Allows the image to move freely */
-            top: 50%;  /* Centers the image vertically */
-            left: 50%;  /* Centers the image horizontally */
+            position: absolute;
+            top: 50%;
+            left: 50%;
             transform: translate(-50%, -50%);
-            animation: bounce 2s infinite; /* Bouncing effect */
+            animation: bounce 2s infinite;
         }
 
         @keyframes bounce {
@@ -88,9 +89,8 @@
             100% { transform: translate(-50%, -50%) scale(1); }
         }
 
-        /* Added space between text and buttons */
         .text-spacing {
-            margin-bottom: 50px; /* Added space */
+            margin-bottom: 50px;
         }
     </style>
 </head>
@@ -103,7 +103,7 @@
         <p class="text-spacing">I love you and I want to make you my HoUsEwIfE!</p>
         <div class="buttons">
             <button class="yes" onclick="showMessage('yes')">Yes! 💖</button>
-            <button class="no" onclick="showMessage('no')">No (I am retard)</button> <!-- Updated "No" button text -->
+            <button class="no" onclick="showMessage('no')">No (I am retard)</button>
         </div>
         <p id="response" style="display: none; font-size: 1.5em; margin-top: 20px; color: #d6336c;"></p>
         <img id="responseImage" class="response-image" style="display: none;">
@@ -116,12 +116,15 @@
         function showMessage(answer) {
             let message = "";
             let imageSrc = "";
+            
             if (answer === 'yes') {
                 message = "CONGRATULATIONS! You've made the right choice ;)";
                 imageSrc = "your-yes-image.jpg";  // Replace with your custom image for Yes
+                document.body.style.backgroundImage = "url('background-image.jpg')";  // Reset to the default background
             } else {
                 message = "Nevermind, I'll go ask your mom then ;)";
                 imageSrc = "your-no-image.jpg";  // Replace with your custom image for No
+                document.body.style.backgroundImage = "url('rain.gif')";  // Set the rain gif as background
             }
             
             // Display the message and image
