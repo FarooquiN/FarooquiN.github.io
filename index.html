@@ -19,12 +19,12 @@
             margin-top: 20px;
         }
         h1 {
-            color: #d6336c;
+            color: white;  /* Changed to white */
             font-size: 2.5em;
             text-shadow: 0 0 10px #fff, 0 0 20px #ff4d6d, 0 0 30px #ff4d6d; /* Glowing text effect */
         }
         p {
-            color: #fff;  /* White text for better contrast against the background */
+            color: white;  /* Changed to white */
             font-size: 1.2em;
             margin-bottom: 30px;
             text-shadow: 0 0 10px #fff, 0 0 20px #ff4d6d;  /* Glowing text effect */
@@ -53,7 +53,7 @@
         }
         .no {
             background-color: #ddd;
-            color: #555;
+            color: white;  /* Changed to white */
         }
         .no:hover {
             position: relative;
@@ -87,6 +87,11 @@
             50% { transform: translate(-50%, -40%) scale(1.1); }
             100% { transform: translate(-50%, -50%) scale(1); }
         }
+
+        /* Added space between text and buttons */
+        .text-spacing {
+            margin-bottom: 50px; /* Added space */
+        }
     </style>
 </head>
 <body>
@@ -95,7 +100,7 @@
 
     <div class="container">
         <h1>Miss Joy, Will You Be My Valentine? ❤️</h1>
-        <p>I love you and I want to make you my HoUsEwIfE!</p>
+        <p class="text-spacing">I love you and I want to make you my HoUsEwIfE!</p>
         <div class="buttons">
             <button class="yes" onclick="showMessage('yes')">Yes! 💖</button>
             <button class="no" onclick="showMessage('no')">No (I am retard)</button> <!-- Updated "No" button text -->
