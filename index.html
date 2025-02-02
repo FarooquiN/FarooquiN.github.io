@@ -21,11 +21,13 @@
         h1 {
             color: #d6336c;
             font-size: 2.5em;
+            text-shadow: 0 0 10px #fff, 0 0 20px #ff4d6d, 0 0 30px #ff4d6d; /* Glowing text effect */
         }
         p {
             color: #fff;  /* White text for better contrast against the background */
             font-size: 1.2em;
             margin-bottom: 30px;
+            text-shadow: 0 0 10px #fff, 0 0 20px #ff4d6d;  /* Glowing text effect */
         }
         .buttons {
             display: flex;
@@ -65,13 +67,25 @@
             100% { transform: translateX(0); }
         }
         .rose-border {
-            width: 100%;
+            width: 50%; /* Resized the gif to 50% */
             height: auto;
+            margin: 0 auto;
         }
         .response-image {
             margin-top: 20px;
             width: 300px; /* Adjust size of the image */
             height: auto;
+            position: absolute;  /* Allows the image to move freely */
+            top: 50%;  /* Centers the image vertically */
+            left: 50%;  /* Centers the image horizontally */
+            transform: translate(-50%, -50%);
+            animation: bounce 2s infinite; /* Bouncing effect */
+        }
+
+        @keyframes bounce {
+            0% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -40%) scale(1.1); }
+            100% { transform: translate(-50%, -50%) scale(1); }
         }
     </style>
 </head>
