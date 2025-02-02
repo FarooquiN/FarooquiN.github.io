@@ -96,7 +96,7 @@
 </head>
 <body>
     <!-- Top Rose Border -->
-    <img src="your-gif-file.gif" alt="Rose Border" class="rose-border">
+    <img src="your-gif-file.gif" alt="Rose Border" class="rose-border" id="roseBorder">
 
     <div class="container">
         <h1>Miss Joy, Will You Be My Valentine? ❤️</h1>
@@ -127,10 +127,12 @@
                 message = "CONGRATULATIONS! You've made the right choice ;)";
                 imageSrc = "your-yes-image.jpg";  // Replace with your custom image for Yes
                 document.body.style.backgroundImage = "url('background-image.jpg')";  // Reset to the default background
+                document.getElementById("roseBorder").src = "your-gif-file.gif";  // Reset to the original gif
             } else {
                 message = "Nevermind, I'll go ask your mom then ;)";
                 imageSrc = "your-no-image.jpg";  // Replace with your custom image for No
                 document.body.style.backgroundImage = "url('rain.gif')";  // Set the rain gif as background
+                document.getElementById("roseBorder").src = "new-gif-file.gif";  // Change the gif when No is clicked
             }
             
             // Display the message and image
