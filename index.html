@@ -8,13 +8,13 @@
         body {
             font-family: 'Arial', sans-serif;
             text-align: center;
-            background-image: url('background-image.jpg');  /* Default background image */
+            background-image: url('background-image.jpg');
             background-size: cover;
             background-position: center;
             margin: 0;
             padding: 0;
             height: 100vh;
-            transition: background-image 1s ease-in-out;  /* Smooth transition for background change */
+            transition: background-image 1s ease-in-out;
         }
         .container {
             margin-top: 20px;
@@ -68,7 +68,7 @@
             100% { transform: translateX(0); }
         }
         .rose-border {
-            width: 50%; /* Resized the gif to 50% */
+            width: 50%;
             height: auto;
             margin: 0 auto;
         }
@@ -90,7 +90,7 @@
         }
 
         .text-spacing {
-            margin-bottom: 80px; /* Increased space */
+            margin-bottom: 80px;
         }
     </style>
 </head>
@@ -102,7 +102,7 @@
         <h1>Miss Joy, Will You Be My Valentine? ❤️</h1>
         <p class="text-spacing">I love you and I want to make you my HoUsEwIfE!</p>
         <div class="buttons">
-            <button class="yes" onclick="showMessage('yes')">Yes! 💖</button>
+            <button class="yes" onclick="startMusic()">Yes! 💖</button>
             <button class="no" onclick="showMessage('no')">No (I am retard)</button>
         </div>
         <p id="response" style="display: none; font-size: 1.5em; margin-top: 20px; color: #d6336c;"></p>
@@ -112,27 +112,32 @@
     <!-- Bottom Rose Border -->
     <img src="your-gif-file.gif" alt="Rose Border" class="rose-border">
 
-    <!-- Background music -->
-    <audio id="background-music" loop autoplay>
+    <audio id="background-music">
         <source src="your-music-file.mp3" type="audio/mp3">  <!-- Replace with your music file -->
         Your browser does not support the audio element.
     </audio>
 
     <script>
+        let music = document.getElementById("background-music");
+
+        function startMusic() {
+            music.play();  // Start the music when the user clicks Yes or No
+        }
+
         function showMessage(answer) {
             let message = "";
             let imageSrc = "";
             
             if (answer === 'yes') {
                 message = "CONGRATULATIONS! You've made the right choice ;)";
-                imageSrc = "your-yes-image.jpg";  // Replace with your custom image for Yes
-                document.body.style.backgroundImage = "url('background-image.jpg')";  // Reset to the default background
-                document.getElementById("roseBorder").src = "your-gif-file.gif";  // Reset to the original gif
+                imageSrc = "your-yes-image.jpg";
+                document.body.style.backgroundImage = "url('background-image.jpg')";
+                document.getElementById("roseBorder").src = "your-gif-file.gif";
             } else {
                 message = "Nevermind, I'll go ask your mom then ;)";
-                imageSrc = "your-no-image.jpg";  // Replace with your custom image for No
-                document.body.style.backgroundImage = "url('rain.gif')";  // Set the rain gif as background
-                document.getElementById("roseBorder").src = "your-image.png";  // Change to your PNG when No is clicked
+                imageSrc = "your-no-image.jpg";
+                document.body.style.backgroundImage = "url('rain.gif')";
+                document.getElementById("roseBorder").src = "your-image.png";  // PNG for No
             }
             
             // Display the message and image
