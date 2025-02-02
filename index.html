@@ -102,8 +102,8 @@
         <h1>Miss Joy, Will You Be My Valentine? ❤️</h1>
         <p class="text-spacing">I love you and I want to make you my HoUsEwIfE!</p>
         <div class="buttons">
-            <button class="yes" onclick="startMusic()">Yes! 💖</button>
-            <button class="no" onclick="showMessage('no')">No (I am retard)</button>
+            <button class="yes" onclick="startMusic(); showMessage('yes')">Yes! 💖</button>
+            <button class="no" onclick="startMusic(); showMessage('no')">No (I am retard)</button>
         </div>
         <p id="response" style="display: none; font-size: 1.5em; margin-top: 20px; color: #d6336c;"></p>
         <img id="responseImage" class="response-image" style="display: none;">
@@ -112,6 +112,7 @@
     <!-- Bottom Rose Border -->
     <img src="your-gif-file.gif" alt="Rose Border" class="rose-border">
 
+    <!-- Background music -->
     <audio id="background-music">
         <source src="your-music-file.mp3" type="audio/mp3">  <!-- Replace with your music file -->
         Your browser does not support the audio element.
@@ -130,14 +131,14 @@
             
             if (answer === 'yes') {
                 message = "CONGRATULATIONS! You've made the right choice ;)";
-                imageSrc = "your-yes-image.jpg";
-                document.body.style.backgroundImage = "url('background-image.jpg')";
-                document.getElementById("roseBorder").src = "your-gif-file.gif";
+                imageSrc = "your-yes-image.jpg";  // Replace with the path to your "Yes" image
+                document.body.style.backgroundImage = "url('background-image.jpg')";  // Reset to the default background
+                document.getElementById("roseBorder").src = "your-gif-file.gif";  // Reset to the original gif
             } else {
                 message = "Nevermind, I'll go ask your mom then ;)";
-                imageSrc = "your-no-image.jpg";
-                document.body.style.backgroundImage = "url('rain.gif')";
-                document.getElementById("roseBorder").src = "your-image.png";  // PNG for No
+                imageSrc = "your-no-image.jpg";  // Replace with your "No" image
+                document.body.style.backgroundImage = "url('rain.gif')";  // Set the rain gif as background
+                document.getElementById("roseBorder").src = "your-image.png";  // Change to your PNG when No is clicked
             }
             
             // Display the message and image
