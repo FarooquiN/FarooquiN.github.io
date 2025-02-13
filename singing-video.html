@@ -39,6 +39,39 @@
         .back-link:hover {
             text-decoration: underline;
         }
+        
+        /* Photograph styling */
+        #photo {
+            width: 300px;
+            height: auto;
+            margin-top: 20px;
+            opacity: 0;
+            animation: movePhoto 3s ease-in-out infinite;
+        }
+
+        /* Animation for moving photograph back and forth */
+        @keyframes movePhoto {
+            0% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            25% {
+                transform: translateX(100px);
+                opacity: 1;
+            }
+            50% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            75% {
+                transform: translateX(-100px);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 <body>
@@ -47,13 +80,28 @@
         
         <div class="media-container">
             <!-- Audio Player -->
-            <audio controls>
+            <audio id="audioPlayer" controls>
                 <source src="my-singing.mp3" type="audio/mp3">
                 Your browser does not support the audio tag.
             </audio>
         </div>
 
+        <!-- Photograph to move back and forth -->
+        <img id="photo" src="your-photo.jpg" alt="Photograph of Bablu">
+
         <a href="index.html" class="back-link">Back to Game</a>
     </div>
+
+    <script>
+        // Get the audio player and photo elements
+        const audioPlayer = document.getElementById("audioPlayer");
+        const photo = document.getElementById("photo");
+
+        // Event listener to start the animation when audio starts playing
+        audioPlayer.addEventListener("play", () => {
+            photo.style.opacity = "1"; // Make photo visible
+            photo.style.animationPlayState = "running"; // Start animation
+        });
+    </script>
 </body>
 </html>
