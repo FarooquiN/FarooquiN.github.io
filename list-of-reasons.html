@@ -3,27 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reasons I Love You</title>
+    <title>Reasons Why I Love Miss Joy Mallu Baddie from Kerela</title>
     <style>
+        /* Full-page GIF background */
         body {
-            background-color: pink;
+            background: url('your-romantic-gif.gif') no-repeat center center fixed;
+            background-size: cover;
             color: white;
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             text-align: center;
+            padding: 50px;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.6); /* Dark overlay for readability */
             padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            text-shadow: 2px 2px 5px rgba(255, 192, 203, 0.8); /* Soft glowing effect */
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            font-size: 1.5em;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1.5s ease-in-out forwards;
+            margin: 15px 0;
+        }
+
+        /* Delayed animation for each reason */
+        li:nth-child(1) { animation-delay: 0.5s; }
+        li:nth-child(2) { animation-delay: 1s; }
+        li:nth-child(3) { animation-delay: 1.5s; }
+        li:nth-child(4) { animation-delay: 2s; }
+        li:nth-child(5) { animation-delay: 2.5s; }
+        li:nth-child(6) { animation-delay: 3s; }
+
+        /* Fade-in effect */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Slide-in effect for each reason */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 30px;
+            font-size: 1.2em;
+            color: pink;
+            text-decoration: none;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <h1>Reasons I Love You ❤️</h1>
-    <ul>
-        <li>You have cute & sexy feet</li>
-        <li>I like how you're so beautiful inside out</li>
-        <li>You are my honeypot</li>
-        <li>I like your side cut</li>
-        <li>You are always honest with me</li>
-        <li>And many more...</li>
-    </ul>
-    <a href="index.html">Back to Game</a>
+    <div class="container">
+        <h1>💖 Reasons Why I Love You 💖</h1>
+        <ul>
+            <li>✨ You make every moment special.</li>
+            <li>😍 Your smile brightens up my world.</li>
+            <li>🎶 You have the most beautiful voice.</li>
+            <li>💌 You always know how to cheer me up.</li>
+            <li>💖 Your love makes my life magical.</li>
+            <li>👩‍❤️‍👨 You're my forever and always. </li>
+        </ul>
+        <a href="index.html" class="back-link">Back to Game</a>
+    </div>
 </body>
 </html>
