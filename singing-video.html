@@ -45,30 +45,31 @@
             width: 300px;
             height: auto;
             margin-top: 20px;
-            opacity: 0;
+            opacity: 0; /* Initially hidden */
             animation: movePhoto 3s ease-in-out infinite;
+            animation-play-state: paused; /* Don't start animation until audio plays */
         }
 
-        /* Animation for moving photograph back and forth */
+        /* Animation for moving photograph toward the screen */
         @keyframes movePhoto {
             0% {
-                transform: translateX(0);
+                transform: translateZ(0) scale(1); /* Original size */
                 opacity: 1;
             }
             25% {
-                transform: translateX(100px);
+                transform: translateZ(30px) scale(1.1); /* Move closer */
                 opacity: 1;
             }
             50% {
-                transform: translateX(0);
+                transform: translateZ(0) scale(1); /* Move back to original position */
                 opacity: 1;
             }
             75% {
-                transform: translateX(-100px);
+                transform: translateZ(30px) scale(1.1); /* Move closer again */
                 opacity: 1;
             }
             100% {
-                transform: translateX(0);
+                transform: translateZ(0) scale(1); /* Back to original position */
                 opacity: 1;
             }
         }
@@ -86,7 +87,7 @@
             </audio>
         </div>
 
-        <!-- Photograph to move back and forth -->
+        <!-- Photograph to move back and forth towards the screen -->
         <img id="photo" src="your-photo.jpg" alt="Photograph of Bablu">
 
         <a href="index.html" class="back-link">Back to Game</a>
