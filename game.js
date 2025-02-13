@@ -56,12 +56,35 @@ document.addEventListener("keyup", (e) => {
     player.moving = false;
 });
 
+// Touch control variables
+let touchStartX, touchStartY, touchMoveX, touchMoveY;
+
+canvas.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+});
+
+canvas.addEventListener('touchmove', (e) => {
+    touchMoveX = e.touches[0].clientX;
+    touchMoveY = e.touches[0].clientY;
+
+    // Calculate movement direction
+    let deltaX = touchMoveX - touchStartX;
+    let deltaY = touchMoveY - touchStartY;
+
+    player.x += deltaX * 0.1;  // Scale the movement for smoother control
+    player.y += deltaY * 0.1;
+
+    touchStartX = touchMoveX; // Update start position to prevent jarring movement
+    touchStartY = touchMoveY;
+});
+
+canvas.addEventListener('touchend', () => {
+    player.moving = false;
+});
+
 function update() {
     let speed = 2;
-    if (keys["ArrowUp"] || keys["w"]) player.y -= speed;
-    if (keys["ArrowDown"] || keys["s"]) player.y += speed;
-    if (keys["ArrowLeft"] || keys["a"]) player.x -= speed;
-    if (keys["ArrowRight"] || keys["d"]) player.x += speed;
 
     // Collision detection for houses
     houses.forEach(house => {
