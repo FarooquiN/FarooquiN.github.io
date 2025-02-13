@@ -45,7 +45,8 @@
             width: 300px;
             height: auto;
             margin-top: 20px;
-            opacity: 0; /* Initially hidden */
+            display: none; /* Initially hidden */
+            opacity: 0; /* Make photo invisible */
             animation: movePhoto 3s ease-in-out infinite;
             animation-play-state: paused; /* Don't start animation until audio plays */
         }
@@ -100,7 +101,8 @@
 
         // Event listener to start the animation when audio starts playing
         audioPlayer.addEventListener("play", () => {
-            photo.style.opacity = "1"; // Make photo visible
+            photo.style.display = "block"; // Make the photo visible
+            photo.style.opacity = "1"; // Ensure opacity is set to 1
             photo.style.animationPlayState = "running"; // Start animation
         });
     </script>
