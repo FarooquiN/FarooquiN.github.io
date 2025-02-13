@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reasons I Love You</title>
+    <style>
+        body {
+            background-color: pink;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reasons I Love You ❤️</h1>
+    <ul>
+        <li>You have sexy feet</li>
+        <li>You are</li>
+        <li>You are my best friend and my favorite person.</li>
+        <li>You always support me no matter what.</li>
+        <li>You make everything in life feel special.</li>
+    </ul>
+    <a href="index.html">Back to Game</a>
+</body>
+</html>
