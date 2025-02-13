@@ -76,16 +76,20 @@ canvas.addEventListener('touchend', () => {
     touchMoveDirection = '';
 });
 
-// Determine touch direction
+// Increase sensitivity for touch swipes
+const touchSensitivity = 50; // Increase this value for more sensitivity
+
+// Determine touch direction with higher sensitivity
 function determineTouchDirection() {
-    if (touchEndX < touchStartX) {
-        touchMoveDirection = 'left';
-    } else if (touchEndX > touchStartX) {
-        touchMoveDirection = 'right';
-    } else if (touchEndY < touchStartY) {
-        touchMoveDirection = 'up';
-    } else if (touchEndY > touchStartY) {
-        touchMoveDirection = 'down';
+    const diffX = touchEndX - touchStartX;
+    const diffY = touchEndY - touchStartY;
+
+    if (Math.abs(diffX) > touchSensitivity || Math.abs(diffY) > touchSensitivity) {
+        if (Math.abs(diffX) > Math.abs(diffY)) {
+            touchMoveDirection = diffX < 0 ? 'left' : 'right';
+        } else {
+            touchMoveDirection = diffY < 0 ? 'up' : 'down';
+        }
     }
 }
 
