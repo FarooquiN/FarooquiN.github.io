@@ -56,44 +56,56 @@ document.addEventListener("keyup", (e) => {
     player.moving = false;
 });
 
-// Touch control variables
-let touchStartX, touchStartY, touchMoveX, touchMoveY;
+// Variables for touch controls
+let touchStartX, touchStartY, touchEndX, touchEndY;
+let touchMoveDirection = '';
 
+// Touch events
 canvas.addEventListener('touchstart', (e) => {
     touchStartX = e.touches[0].clientX;
     touchStartY = e.touches[0].clientY;
 });
 
 canvas.addEventListener('touchmove', (e) => {
-    touchMoveX = e.touches[0].clientX;
-    touchMoveY = e.touches[0].clientY;
-
-    // Calculate movement direction
-    let deltaX = touchMoveX - touchStartX;
-    let deltaY = touchMoveY - touchStartY;
-
-    player.x += deltaX * 0.1;  // Scale the movement for smoother control
-    player.y += deltaY * 0.1;
-
-    touchStartX = touchMoveX; // Update start position to prevent jarring movement
-    touchStartY = touchMoveY;
+    touchEndX = e.touches[0].clientX;
+    touchEndY = e.touches[0].clientY;
+    determineTouchDirection();
 });
 
 canvas.addEventListener('touchend', () => {
-    player.moving = false;
+    touchMoveDirection = '';
 });
+
+// Determine touch direction
+function determineTouchDirection() {
+    if (touchEndX < touchStartX) {
+        touchMoveDirection = 'left';
+    } else if (touchEndX > touchStartX) {
+        touchMoveDirection = 'right';
+    } else if (touchEndY < touchStartY) {
+        touchMoveDirection = 'up';
+    } else if (touchEndY > touchStartY) {
+        touchMoveDirection = 'down';
+    }
+}
 
 function update() {
     let speed = 2;
+    if (keys["ArrowUp"] || keys["w"] || touchMoveDirection === 'up') player.y -= speed;
+    if (keys["ArrowDown"] || keys["s"] || touchMoveDirection === 'down') player.y += speed;
+    if (keys["ArrowLeft"] || keys["a"] || touchMoveDirection === 'left') player.x -= speed;
+    if (keys["ArrowRight"] || keys["d"] || touchMoveDirection === 'right') player.x += speed;
 
     // Collision detection for houses
     houses.forEach(house => {
+        // Check if the player is touching or inside the house
         if (
             player.x + player.width > house.x &&
             player.x < house.x + house.width &&
             player.y + player.height > house.y &&
             player.y < house.y + house.height
         ) {
+            // Trigger transition immediately upon collision
             fadeOut(house.action);
         }
     });
@@ -129,7 +141,7 @@ function fadeOut(callback) {
         canvas.style.opacity = opacity;
         if (opacity <= 0) {
             clearInterval(fadeInterval);
-            callback();
+            callback(); // Trigger the action (e.g., navigate to another page or show content)
         }
     }, 50);
 }
