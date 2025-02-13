@@ -94,7 +94,7 @@ function draw() {
         ctx.fillRect(50, 50, 700, 100);
         ctx.fillStyle = "white";
         ctx.font = "20px Arial";
-        ctx.fillText("Hello Yianna, see those two beautiful houses there? Why not go inside and check them out?", 60, 100);
+        ctx.fillText("Hi Bablu, see those two houses there? Why not check them out?", 60, 100);
         setTimeout(() => (showMessage = false), 5000);
     }
 }
