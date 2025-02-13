@@ -29,8 +29,8 @@ houseSprite.src = "8bit-house.png"; // Replace with house sprite image
 
 // Houses coordinates and actions
 const houses = [
-    { x: 600, y: 250, width: 100, height: 100, action: () => window.location.href = "list-of-reasons.html" },
-    { x: 200, y: 250, width: 120, height: 120, action: () => window.location.href = "singing-video.html" }
+    { x: 600, y: 250, width: 150, height: 100, action: () => window.location.href = "list-of-reasons.html" },
+    { x: 200, y: 250, width: 190, height: 120, action: () => window.location.href = "singing-video.html" }
 ];
 
 let showMessage = true;
